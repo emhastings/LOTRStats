@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Created by ehast on 12/30/2017.
+ *
+ * Class representing character stats and inventory.
  */
 
 public class Character {
@@ -25,9 +27,14 @@ public class Character {
     //items
     private ArrayList<String> items;
 
-    //should this character be displayed?
+    //should this character be displayed for this game?
     boolean display;
 
+    /**
+     * Constructor.
+     * @param name  Character name
+     * @param game  Game name ("FotR", "TT" or "RotK")
+     */
     public Character(String name, String game)  {
         this.name = name;
 
@@ -402,12 +409,14 @@ public class Character {
         }
     }
 
+    /*  ------Getters and Setters------ */
+
     public String getName() {
         return name;
     }
 
     public int getSpeed() {
-        return speed;
+        return speed + speedModifier;
     }
 
     public void setSpeed(int speed) {
@@ -415,7 +424,7 @@ public class Character {
     }
 
     public int getPower() {
-        return power;
+        return power + powerModifier;
     }
 
     public void setPower(int power) {
@@ -423,7 +432,7 @@ public class Character {
     }
 
     public int getWisdom() {
-        return wisdom;
+        return wisdom + wisdomModifier;
     }
 
     public void setWisdom(int wisdom) {
@@ -431,7 +440,7 @@ public class Character {
     }
 
     public int getMagic() {
-        return magic;
+        return magic + magicModifier;
     }
 
     public void setMagic(int magic) {
@@ -490,4 +499,7 @@ public class Character {
         this.display = display;
     }
 
+    public String toString()  {
+        return String.format("%10s %5s %5s %6s %5s %20s%n", name, getSpeed(), getPower(), getWisdom(), getMagic(), items);
+    }
 }
