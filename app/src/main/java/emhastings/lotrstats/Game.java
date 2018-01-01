@@ -16,6 +16,14 @@ public class Game {
     private String game;
 
     /**
+     * No-arg constructor.  Assumes Fellowship.
+     */
+    public Game() {
+        this.game = "FotR";
+        initChars();
+    }
+
+    /**
      * Constructor
      * @param game Game name ("FotR", "TT" or "RotK")
      */
@@ -24,6 +32,14 @@ public class Game {
         this.game = game;
 
         //initialize characters
+        initChars();
+
+    }
+
+    /**
+     * Initialize characters
+     */
+    public void initChars()  {
         charNames = new ArrayList<String>();
         charNames.add("Boromir");
         charNames.add("Frodo");
