@@ -5,15 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="emhastings.lotrstats.MainPageFragment"
-    tools:showIn="@layout/activity_main_page">
+    tools:showIn="@layout/activity_main_page"
+    android:background="@drawable/background_image" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Character Stats"
+            android:gravity="center"
+            android:textColor="@color/darkBrown"
+            android:textSize="36dp"/>
+
+        <!-- Insert the table here somehow-->
+        <TextView
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <!--  Buttons -->
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp">
+
+            <emhastings.lotrstats.FormattedButton
+                android:id="@+id/editButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/edit"
+                android:layout_marginRight="7dp"
+            />
+
+            <emhastings.lotrstats.FormattedButton
+                android:id="@+id/gameButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/game"
+                android:layout_marginRight="7dp"
+            />
+
+            <emhastings.lotrstats.FormattedButton
+                android:id="@+id/clearButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/clear"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 
 </android.support.constraint.ConstraintLayout>

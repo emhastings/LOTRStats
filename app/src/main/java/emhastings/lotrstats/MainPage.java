@@ -1,5 +1,6 @@
 package emhastings.lotrstats;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,8 @@ import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -33,15 +36,14 @@ public class MainPage extends AppCompatActivity {
         //set up game
         Game game = new Game("FotR");
 
-        //sample button
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        TextView txt = (TextView) findViewById(R.id.title);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "hobbitonbrushhand.ttf");
+        txt.setTypeface(typeface, Typeface.BOLD);
+
+        TextView table = (TextView) findViewById(R.id.table);
+        table.setText(game.toString());
+        Typeface typeface2 = Typeface.createFromAsset(getAssets(), "ringbearer.TTF");
+        table.setTypeface(typeface2);
 
 
     }
