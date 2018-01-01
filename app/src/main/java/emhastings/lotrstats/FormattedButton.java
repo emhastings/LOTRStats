@@ -11,6 +11,8 @@ import android.util.TypedValue;
  * Created by ehast on 1/1/2018.
  *
  * By Cabezas on StackOverflow.  https://stackoverflow.com/questions/6372458/setting-button-text-font-in-android
+ *
+ * Colors from the Fellowship game box: https://www.funagain.com/faimages/catalog/product/large/2/013917_21467.jpeg
  */
 
 public class FormattedButton extends android.support.v7.widget.AppCompatButton {

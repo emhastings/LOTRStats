@@ -17,7 +17,7 @@ import com.google.gson.Gson;
 
 public class MainPage extends AppCompatActivity {
 
-    Game game;
+    private Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +34,45 @@ public class MainPage extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //set up game
-        Game game = new Game("FotR");
+        game = new Game();
 
         TextView txt = (TextView) findViewById(R.id.title);
         Typeface typeface = Typeface.createFromAsset(getAssets(), "hobbitonbrushhand.ttf");
         txt.setTypeface(typeface, Typeface.BOLD);
 
-        TextView table = (TextView) findViewById(R.id.table);
+        final TextView table = (TextView) findViewById(R.id.table);
         table.setText(game.toString());
         Typeface typeface2 = Typeface.createFromAsset(getAssets(), "ringbearer.TTF");
         table.setTypeface(typeface2);
+
+        //Button handlers
+        final Game finalGame = game; //final reference for inner classes-- should work right?
+        Button editButton = (Button) findViewById(R.id.editButton);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO
+                Character theoden = game.getChars().get("Theoden");
+                theoden.setPowerModifier(10);
+                table.setText(game.toString());
+            }
+        });
+
+        Button gameButton = (Button) findViewById(R.id.gameButton);
+        gameButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO
+                game.changeGame("TT");
+                table.setText(game.toString());
+            }
+        });
+
+        Button clearButton = (Button) findViewById(R.id.clearButton);
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finalGame.clearStats();
+                table.setText(game.toString());
+            }
+        });
 
 
     }
